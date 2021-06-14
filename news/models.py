@@ -14,14 +14,14 @@ class NewsCategory(models.Model):
 
 class Post(models.Model):
     category = models.ForeignKey(NewsCategory, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255, default='Title')
-    author = models.CharField(max_length=255, default='Name')
+    title = models.CharField(max_length=255, default="Title")
+    author = models.CharField(max_length=255, default="Name")
     date_posted = models.DateField(auto_now_add=True)
     body = models.TextField()
-    image = models.ImageField(upload_to="~/media")
-    image2 = models.ImageField(upload_to="~/media", blank=True, null=True)
-    image3 = models.ImageField(upload_to="~/media", blank=True, null=True)
-    image4 = models.ImageField(upload_to="~/media", blank=True, null=True)
+    image = models.ImageField(upload_to="~./media")
+    image2 = models.ImageField(upload_to="~./media", blank=True, null=True)
+    image3 = models.ImageField(upload_to="~./media", blank=True, null=True)
+    image4 = models.ImageField(upload_to="~./media", blank=True, null=True)
 
     class Meta:
         ordering = ("-date_posted",)

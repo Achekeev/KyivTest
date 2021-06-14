@@ -8,60 +8,120 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='NewsCategory',
+            name="NewsCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
             ],
             options={
-                'verbose_name': 'Category',
-                'verbose_name_plural': 'Categories',
+                "verbose_name": "Category",
+                "verbose_name_plural": "Categories",
             },
         ),
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(default='Title', max_length=255)),
-                ('author', models.CharField(default='Name', max_length=255)),
-                ('date_posted', models.DateField(auto_now_add=True)),
-                ('body', models.TextField()),
-                ('image', models.ImageField(upload_to='~/media')),
-                ('image2', models.ImageField(blank=True, null=True, upload_to='~/media')),
-                ('image3', models.ImageField(blank=True, null=True, upload_to='~/media')),
-                ('image4', models.ImageField(blank=True, null=True, upload_to='~/media')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news.newscategory')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(default="Title", max_length=255)),
+                ("author", models.CharField(default="Name", max_length=255)),
+                ("date_posted", models.DateField(auto_now_add=True)),
+                ("body", models.TextField()),
+                ("image", models.ImageField(upload_to="~/media")),
+                (
+                    "image2",
+                    models.ImageField(blank=True, null=True, upload_to="~/media"),
+                ),
+                (
+                    "image3",
+                    models.ImageField(blank=True, null=True, upload_to="~/media"),
+                ),
+                (
+                    "image4",
+                    models.ImageField(blank=True, null=True, upload_to="~/media"),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="news.newscategory",
+                    ),
+                ),
             ],
             options={
-                'ordering': ('-date_posted',),
+                "ordering": ("-date_posted",),
             },
         ),
         migrations.CreateModel(
-            name='UpVote',
+            name="UpVote",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('like', models.BooleanField(default=False)),
-                ('dislike', models.BooleanField(default=False)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='upvotes', to='news.post')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("like", models.BooleanField(default=False)),
+                ("dislike", models.BooleanField(default=False)),
+                (
+                    "post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="upvotes",
+                        to="news.post",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('body', models.TextField(max_length=300)),
-                ('created_at', models.DateField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='news.post')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("body", models.TextField(max_length=300)),
+                ("created_at", models.DateField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                (
+                    "post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="comments",
+                        to="news.post",
+                    ),
+                ),
             ],
             options={
-                'ordering': ('-created_at',),
+                "ordering": ("-created_at",),
             },
         ),
     ]
