@@ -10,7 +10,7 @@ This is a test project for a junior Python Developer position
 4. Create a superuser using this command            
 docker-compose exec web ./manage.py createsuperuser
             
-In case of errors use Google
+In case of errors use Google or StackOverFlow
 
 Working API's are here: http://194.58.92.212:8020
 

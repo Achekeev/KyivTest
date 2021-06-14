@@ -40,7 +40,12 @@ class PostDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     ]
 
 
-class CommentsAPIView(generics.ListAPIView):
+class CommentsAPIView(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+
+class CommentsDetailAPIView(generics.RetrieveAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
