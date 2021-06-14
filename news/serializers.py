@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import NewsCategory, Post, Comment, UpVote
+from .models import NewsCategory, Post, Comment, UpVote, Subscribe
 from rest_framework.reverse import reverse
 
 
@@ -52,3 +52,9 @@ class UpvoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = UpVote
         fields = ("id", "post", "like", "dislike")
+
+
+class SubscribeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscribe
+        fields = ('id', 'email')

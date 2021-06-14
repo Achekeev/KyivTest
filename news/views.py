@@ -1,10 +1,10 @@
-from .models import NewsCategory, Post, Comment, UpVote
+from .models import NewsCategory, Post, Comment, UpVote, Subscribe
 from rest_framework import generics, permissions
 from .serializers import (
     CategorySerializer,
     PostSerializer,
     CommentSerializer,
-    UpvoteSerializer,
+    UpvoteSerializer, SubscribeSerializer,
 )
 
 
@@ -53,3 +53,8 @@ class CommentsDetailAPIView(generics.RetrieveAPIView):
 class UpvoteAPIView(generics.ListCreateAPIView):
     queryset = UpVote.objects.all()
     serializer_class = UpvoteSerializer
+
+
+class SubscribeAPIView(generics.ListCreateAPIView):
+    queryset = Subscribe.objects.all()
+    serializer_class = SubscribeSerializer

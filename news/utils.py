@@ -1,5 +1,5 @@
 from schedule_machine.chrono import Timers
-from news.views import Post
+from news.models import Post
 
 
 def reset_count():

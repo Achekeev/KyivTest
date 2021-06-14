@@ -51,3 +51,10 @@ class UpVote(models.Model):
 
     def __str__(self):
         return self.post
+
+
+class Subscribe(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
