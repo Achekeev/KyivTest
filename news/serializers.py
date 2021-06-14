@@ -57,4 +57,4 @@ class UpvoteSerializer(serializers.ModelSerializer):
 class SubscribeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscribe
-        fields = ('id', 'email')
+        fields = ("id", "email")

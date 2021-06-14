@@ -4,7 +4,8 @@ from .serializers import (
     CategorySerializer,
     PostSerializer,
     CommentSerializer,
-    UpvoteSerializer, SubscribeSerializer,
+    UpvoteSerializer,
+    SubscribeSerializer,
 )
 
 

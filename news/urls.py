@@ -6,7 +6,8 @@ from .views import (
     PostListAPIView,
     PostDetailAPIView,
     CommentsAPIView,
-    UpvoteAPIView, CommentsDetailAPIView,
+    UpvoteAPIView,
+    CommentsDetailAPIView, SubscribeAPIView,
 )
 from KyivTest import settings
 
@@ -20,6 +21,9 @@ urlpatterns = [
     path("posts/", PostListAPIView.as_view(), name="posts-list"),
     path("posts/<int:pk>/", PostDetailAPIView.as_view(), name="post-detail"),
     path("comments/", CommentsAPIView.as_view(), name="commentslilst"),
-    path('comments/<int:pk>/', CommentsDetailAPIView.as_view(), name='comments-details'),
+    path(
+        "comments/<int:pk>/", CommentsDetailAPIView.as_view(), name="comments-details"
+    ),
     path("upvote/", UpvoteAPIView.as_view(), name="upvote"),
+    path("subscribe/", SubscribeAPIView.as_view(), name='subscribers-list'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
