@@ -1,0 +1,8 @@
+djangorestframework~=3.12.4
+black
+drf-yasg
+psycopg2-binary
+django-cors-headers
+django-environ
+Pillow
+schedule_machine
